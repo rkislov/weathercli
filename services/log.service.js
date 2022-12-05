@@ -19,6 +19,17 @@ const printHelp = () => {
         -t API ключ для сохранения токена
          `
     );
-}
+};
 
-export {printError, printSuccess, printHelp};
+
+const printWeather = (res) => {
+    console.log(
+        dedent `${chalk.bgYellow(' ПОГОДА ')} в городе ${res.name}
+        ${res.weather[0].description}
+        Температура: ${res.main.temp} (ошущается как ${res.main.feels_like})
+        Влажность: ${res.main.humidity}%
+        Скорость ветра: ${res.wind.speed} м/с                
+        `
+    );
+}
+export {printError, printSuccess, printHelp, printWeather};

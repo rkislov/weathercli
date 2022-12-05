@@ -1,8 +1,9 @@
 import axios from 'axios';
 import https from 'https';
 import {getKeyValue, TOKENDICTIONARY} from './storage.service.js'
-const getWeather = async (city) => {
 
+
+const getWeather = async (city) => {
 
     const token = process.env.TOKEN ?? await getKeyValue(TOKENDICTIONARY.token);
     if(!token) {
