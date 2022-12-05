@@ -4,7 +4,7 @@ import {getKeyValue, TOKENDICTIONARY} from './storage.service.js'
 const getWeather = async (city) => {
 
 
-    const token = await getKeyValue(TOKENDICTIONARY.token);
+    const token = process.env.TOKEN ?? await getKeyValue(TOKENDICTIONARY.token);
     if(!token) {
         throw new Error('Не задан ключ APIб задайье его комадой -t [API key]')
     }
@@ -16,6 +16,7 @@ const getWeather = async (city) => {
             units: 'metric'
         }
     });
+ 
     return data;
 
 };
